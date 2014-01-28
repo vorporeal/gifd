@@ -1,7 +1,12 @@
+// gifd.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println("hello world")
+	flags.Init()
+	fmt.Println(flags.Port)
+	fmt.Println(flags.Path)
 }
