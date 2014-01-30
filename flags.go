@@ -8,17 +8,20 @@ import (
 )
 
 type flagSet struct {
-	Port uint
+	Http bool
 	Path string
+	Port uint
 }
 
 var flags flagSet
 
 func (f *flagSet) Init() {
-	flag.UintVar(&f.Port, "port", 23,
+	flag.UintVar(&f.Port, "port", 6926,
 		"The port on which to listen for requests.")
 	flag.StringVar(&f.Path, "path", "",
 		"The path to the GIF which will be served.")
+	flag.BoolVar(&f.Http, "http", false,
+		"Whether the GIF should be served over http.")
 
 	flag.Parse()
 
