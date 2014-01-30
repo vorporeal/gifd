@@ -52,6 +52,7 @@ func NewAnim(r io.Reader) *Anim {
 func (a *Anim) ImageAtTime(t int) image.Image {
 	for elapsed, i := range a.elapsed {
 		if elapsed <= t {
+			log.Printf("frame %d is at time %d", i, t)
 			return a.frames[i]
 		}
 	}
